@@ -1,0 +1,5 @@
+option 1: connect to psql console using pgAdmin
+\copy mn_census_tracts_2000 from 'C:\git\GIS5577_spring_2018\GIS5577_week1\mn_census_tracts.csv' with header CSV
+
+option2: connect os psql via command
+psql -h gis5777.csaba3m4f8xj.us-east-1.rds.amazonaws.com -U username -d userdb -c "\copy mn_census_tracts_2000 from 'C:\git\GIS5577_spring_2018\GIS5577_week1\mn_census_tracts.csv' with header CSV"
