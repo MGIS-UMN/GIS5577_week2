@@ -1,0 +1,29 @@
+\SELECT sum(male_under_5_years) as all_little_men,
+sum(female_under_5_years) as all_little_women,
+sum(male_under_5_years) + sum(female_under_5_years) as all_little_kids,
+sum(male_under_5_years + female_under_5_years) as all_little_kids2
+
+-- sum(total) as mn_people
+FROM mn_census_tracts_2000
+LIMIT 20
+
+
+
+SELECT county_name, sum(american_indian_alone) as total_american_indians
+FROM mn_census_tracts_2000
+GROUP BY county_name
+ORDER BY 2 DESC
+
+
+SELECT sum(american_indian_alone + black_alone) as total_black_american_indians,
+avg(american_indian_alone + black_alone) as total_black_american_indians
+FROM mn_census_tracts_2000
+
+ORDER BY 2 DESC
+
+SELECT county_name
+FROM mn_census_tracts_2000
+
+SELECT county_name
+FROM mn_census_tracts_2000
+WHERE upper(county_name) LIKE '%LAKE%'

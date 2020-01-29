@@ -1,0 +1,129 @@
+CREATE TABLE family_info ( family_id bigint, first_name varchar(5), last_name text, age integer);
+
+SELECT *
+FROM family_info2
+
+
+INSERT INTO family_info
+(family_id, first_name, last_name)
+VALUES
+(1, 'David', 'The dinosaur');
+
+INSERT INTO family_info
+(family_id, last_name, first_name)
+VALUES
+(1, 'last_name', 'first');
+
+
+INSERT INTO family_info
+VALUES
+(1, 'last_name', 'first');
+
+
+INSERT INTO family_info
+(family_id, last_name, first_name)
+VALUES
+(1, 'last_name', 'first'),
+(2, 'last_name2', 'first');
+
+
+
+CREATE TABLE family_info2 ( family_id serial, first_name varchar(5), last_name text, age integer);
+
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('Haynes', 'David', 29.3),
+('last_name2', 'first');
+
+SELECT *
+FROM family_info2
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('Haynes', 'D2', 29.500000001);
+-- rounds up or down to nearest integer
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('Haynes', 232, 29.500000001);
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('Haynes', 232.0, 29.500000001);
+
+DROP TABLE family_info;
+
+SELECT *
+FROM family_info2
+
+DELETE FROM family_info
+WHERE last_name = 'Macklkjdf';
+
+DELETE FROM family_info2
+WHERE first_name = '232';
+
+SELECT *
+FROM family_info2
+WHERE first_name = '232';
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('We are seeing if this is 11', 'david', 0);
+
+DELETE FROM family_info2
+WHERE last_name = 'We are seeing if this is 11'
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('We are seeing if this is 14', 'david', 0);
+
+
+INSERT INTO family_info2
+(last_name, first_name, age)
+VALUES
+('Happy Day', 'David', 35);
+
+
+SELECT *
+FROM family_info2
+WHERE first_name= 'David' AND last_name = 'Haynes'
+
+
+SELECT *
+FROM family_info2
+WHERE first_name= 'David' or first_name = 'david'
+
+
+SELECT *
+FROM family_info2
+WHERE first_name = 'David' or first_name = 'david'
+
+SELECT upper(first_name), lower(first_name), last_name, family_id*500
+FROM family_info2
+WHERE upper(first_name) = 'DAVID' 
+
+
+
+
+
+
+INSERT INTO family_info
+(family_id, first_name, last_name)
+VALUES
+(1, 'David', 'The dinosaur');
+
+DELETE FROM family_info
+WHERE last_name = 'Macklkjdf';
+
+
+SELECT first_name, last_name
+FROM family_info2
+WHERE first_name= 'David' AND
+last_name = 'Haynes'
