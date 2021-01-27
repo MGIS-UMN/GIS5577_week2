@@ -141,4 +141,4 @@ Male integer,
 Female integer
 );
 
-\copy mn_census_tracts_2000 from 'C:\work\GIS5577_week2\mn_census_tracts.csv' with header CSV;
+\copy mn_census_tracts_2000 from 'C:\git\GIS5577_week2\mn_census_tracts.csv' with header CSV;
