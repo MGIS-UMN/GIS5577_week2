@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS us_census_tracts_2014_2017;
+DROP TABLE IF EXISTS us_census_tracts_2014_2018;
 
-CREATE TABLE us_census_tracts_2014_2017(
+CREATE TABLE us_census_tracts_2014_2018(
 GIS_Join_Match_Code text,
 Data_File_Year text,
 Region_Code integer,
@@ -87,4 +87,4 @@ Hispanic_or_Latino_Some_other_race_alone  integer,
 Hispanic_or_Latino_Two_or_more_races  integer
 );
 
-\copy us_census_tracts_2014_2017 from 'C:\git\GIS5577_week2\us_tract_2014_2018_population.csv' with header CSV;
+\copy us_census_tracts_2014_2018 from 'C:\git\GIS5577_week2\us_tract_2014_2018_population.csv' with header CSV;
