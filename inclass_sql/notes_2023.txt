@@ -1,0 +1,153 @@
+Week 2 repo
+https://github.com/MGIS-UMN/GIS5577_week2 
+
+
+Github test assignment
+Every assignment repo is linked on Canvas
+
+SELECT TOTAL, total, ToTAL
+FROM mn_census_tracts_2000
+-- THere is no case sensitive formatting
+
+SELECT TOTAL, total + ToTAL
+-- this is dobuling the populations
+FROM mn_census_tracts_2000
+
+
+--Write a statement that selects 3 racial populations 
+SELECT white_alone, black_alone, american_indian_alone 
+FROM mn_census_tracts_2000
+
+--Write a statement that has all children under 5 in a single column
+SELECT male_under_5_years + female_under_5_years , 'David'
+FROM mn_census_tracts_2000
+
+-- Why is David repeated
+SELECT male_under_5_years + female_under_5_years , 'David'
+FROM mn_census_tracts_2000
+-- 
+
+SELECT 'David'
+
+Select count(1)
+FROM mn_census_tracts_2000
+
+Questions
+Statement that adds 3 numbers together
+select 1 + 5 + 9
+
+select 3 + 4 + 5
+Statement that two columns with your first and last name
+select 'Zain Ul Abidn', 'Siyal'
+
+Statement 
+select 'Zain Ul Abidn', 'Siyal'
+We want this in 1 column
+select 'Zain Ul Abidn' || 'Siyal'
+
+
+
+select 'Zain Ul Abidn ' || 'Siyal'
+select 'Zain Ul Abidn' || ' Siyal'
+select 'Zain Ul Abidn' || ' ' || 'Siyal' || 'adfadgbfadg'
+select 'Diego', 'Osorio'
+select 'Diego' || 'Osorio'
+
+
+select 'Diego' || 'Osorio';
+-- , will give us a new column
+-- ||
+
+Statement that selects 3 racial populations 
+
+SELECT white_alone, black_alone, american_indian_alone 
+FROM mn_census_tracts_2000
+
+--Write a statement that has all children under 5 in a single column
+SELECT male_under_5_years + female_under_5_years 
+FROM mn_census_tracts_2000
+
+-- Why is David repeated ?
+SELECT male_under_5_years + female_under_5_years , 'David'
+FROM mn_census_tracts_2000
+CREATE 
+CREATE TABLE family (family_id integer, first_name text, last_name text, age integer);
+
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, 'David', 'Haynes', 6),(3, 'Olivia', 'Haynes', 4);
+
+select *
+from family
+
+-- Questions what happens if you swap somee columns around
+
+INSERT INTO family (family_id, last_name,first_name, age) VALUES (2, 'Jackie', 'Haynes', 8)
+-- IT worked
+-- THe order of the column needs to match your data
+select *
+from family
+
+-- My data is float will integer accept
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, 'Jackie', 'Haynes', 8.354)
+--It worked
+select *
+from family
+
+
+-- My data is float will integer accept
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, '99.326565', 'Haynes', 8.354)
+--It worked
+-- we gave it single quotes so it considerd to be text
+select *
+from family
+
+
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, 99.326565, 'Haynes', 8.354)
+-- It worked
+-- text accepts anything
+select *
+from family
+
+-- Integer is a more restrictive type of data
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, 99.326565, 'Haynes', 'apples')
+-- ERrror 
+
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, 99.326565, 'Haynes', '8.354')
+-- ERROR
+
+-- INput multiple peoplt in your family in one statement
+INSERT INTO family (family_id, first_name, last_name, age) VALUES (2, 'David', 'Haynes', 8), (2, 'Oscar', 'Grouch', '54')
+
+----
+
+SELECT  *
+FROM us_census_tracts_2014_2018
+WHERE  state_name = 'Minnesota'
+
+
+-- how many census in california
+-- how many census in california
+SELECT  count(1)  -- not case sensitive for field names
+FROM us_census_tracts_2014_2018
+WHERE state_name = 'California'
+-- 8057 census tracts
+
+
+-- how many census in california & wyoming
+
+SELECT  count(1)  -- not case sensitive for field names
+FROM us_census_tracts_2014_2018
+WHERE state_name = 'California' + ‘Wyoming’
+
+
+C:\Console2
+
+C:\Console2>cd "c:\Program Files\PostgreSQL\13\bin"
+
+
+
+c:\Program Files\PostgreSQL\13\bin>psql -h spatialdb.gisandbox.org -p 5432 -d dahaynes -U dahaynes
+psql: error: FATAL:  password authentication failed for user "dahaynes"
+FATAL:  password authentication failed for user "dahaynes"
+
+c:\Program Files\PostgreSQL\13\bin>psql -h spatialdb.gisandbox.org -p 5432 -d dahaynes -U dahaynes -f
+
