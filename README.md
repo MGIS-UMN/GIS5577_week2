@@ -45,5 +45,5 @@ CREATE TABLE mn_census_tracts_2000(GID serial primary key, GIS_Join_Match_Code t
 ### Additional Resources
 1. [Tutorials Point](https://www.tutorialspoint.com/sql/)
 1. [Code Academcy](https://www.codecademy.com/learn/learn-sql)
-1. [PSQL Reserved Words](https://www.postgresql.org/docs/9.6/static/sql-keywords-appendix.html)
+1. [PSQL Reserved Words](https://www.postgresql.org/docs/12/sql-keywords-appendix.html)
 
