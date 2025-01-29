@@ -1,0 +1,179 @@
+SELECT *
+FROM mn_census_tracts_2000;
+
+
+SELECT 1;
+-- Return the number 1
+
+SELECT 2;
+
+SELECT 1+2, 4;
+
+SELECT 1+2, 4.023235;
+
+SELECT a
+-- Didn't work
+
+SELECT 'a'
+-- Single quotes mean text
+
+SELECT 'dog'
+
+-- 2 columns dog 1
+SELECT 'dog', 4.023235;
+
+
+SELECT *
+FROM mn_census_tracts_2000;
+-- 1303
+-- Why so many records/rows
+
+-- How many records
+SELECT 'a', 1  --RETURN
+FROM mn_census_tracts_2000;
+-- 1303 records
+
+-- 
+SELECT *  --return all of the columns
+FROM mn_census_tracts_2000;
+-- return all of the records
+
+SELECT male_under_5_years, Female_under_5_years
+FROM mn_census_tracts_2000
+
+-- Tell me how many children under 5 are there per tract
+SELECT male_under_5_years, Female_under_5_years
+FROM mn_census_tracts_2000
+
+SELECT 1+2, 4;
+
+
+SELECT male_under_5_years, male_under_5_years+100
+FROM mn_census_tracts_2000
+-- modifying the data on the return
+
+
+SELECT male_under_5_years, Female_under_5_years,
+	male_under_5_years+ Female_under_5_years
+FROM mn_census_tracts_2000
+
+
+SELECT Male_Under_5_years +
+	Male_5_to_9_years + 
+	Male_10_to_14_years + 
+	Male_15_to_17_years as men_under_18,
+	Male_Under_5_years as five_year_boys
+	-- allias
+FROM mn_census_tracts_2000
+
+
+SELECT county_name, 
+	Male_Under_5_years + Male_5_to_9_years + 
+	Male_10_to_14_years + Male_15_to_17_years as men_under_18
+FROM mn_census_tracts_2000   -- 1 (Read here first)
+WHERE county_name = 'Anoka'  -- 2 (ONly keep this)
+
+
+-- Anoka and Hennepin
+
+SELECT county_name, 
+	Male_Under_5_years + Male_5_to_9_years + 
+	Male_10_to_14_years + Male_15_to_17_years as men_under_18
+FROM mn_census_tracts_2000   -- 1 (Read here first)
+WHERE county_name = 'Anoka' or county_name = 'Hennepin'
+-- LOGIC OPERATION 
+-- and 'Hennepin'
+-- , county_name = 'Hennepin'
+
+
+SELECT county_name, Male_Under_5_years,
+	Male_Under_5_years + Male_5_to_9_years + 
+	Male_10_to_14_years + Male_15_to_17_years as men_under_18
+FROM mn_census_tracts_2000   -- 1 (Read here first)
+WHERE county_name = 'Anoka' and Male_Under_5_years < 80;
+
+SELECT county_name, 
+	Male_Under_5_years
+FROM mn_census_tracts_2000 
+
+
+SELECT county_name, Male_Under_5_years + Male_5_to_9_years + Male_10_to_14_years + Male_15_to_17_years as men_under_18, Male_5_to_9_years
+FROM mn_census_tracts_2000
+WHERE male_5_to_9_years Between 100 and 200
+
+
+SELECT sum(Male_Under_5_years) as baby_boys
+FROM mn_census_tracts_2000
+-- WHERE
+GROUP BY state_name --What to aggregate over
+
+
+SELECT 
+	sum(male_Under_5_years) as baby_boys,
+	sum(female_Under_5_years) as baby_girls,
+	avg(female_Under_5_years) as avg_girls
+FROM mn_census_tracts_2000
+-- WHERE
+GROUP BY state_name --What to aggregate over
+-- sum, avg, 
+
+
+SELECT county_name,
+	sum(male_Under_5_years) as baby_boys,
+	sum(female_Under_5_years) as baby_girls,
+	avg(female_Under_5_years) as avg_girls
+FROM mn_census_tracts_2000
+-- WHERE
+GROUP BY county_name
+
+select count(1)
+FROM mn_census_tracts_2000
+-- how many record in the table
+
+
+SELECT string_agg(state_name, county_name),
+	sum(male_Under_5_years) as baby_boys,
+	sum(female_Under_5_years) as baby_girls,
+	avg(female_Under_5_years) as avg_girls
+FROM mn_census_tracts_2000
+-- WHERE
+GROUP BY state_name, county_name
+
+
+SELECT state_name, county_name,
+	sum(male_Under_5_years) as baby_boys,
+	sum(female_Under_5_years) as baby_girls,
+	avg(female_Under_5_years) as avg_girls
+FROM mn_census_tracts_2000
+-- WHERE
+GROUP BY state_name, county_name
+ORDER BY state_name, baby_boys DESC --- SORT
+-- ORDER BY ASC / DESC
+
+SELECT county_name
+FROM mn_census_tracts_2000
+WHERE lower(county_name) LIKE '%lake%'  --specifiying to make the contents of hte filed county_name lowercase
+-- % wildcard
+
+
+SELECT county_name, upper(county_name) as UPPERCASE_county_anme
+FROM mn_census_tracts_2000
+WHERE upper(county_name) LIKE '%LAKE%' 
+
+
+SELECT county_name
+FROM mn_census_tracts_2000
+WHERE lower(county_name) LIKE '%lake%'
+--"Lake"
+-- "Lake Of The Woods"
+-- "Red Lake"
+
+
+SELECT county_name
+FROM mn_census_tracts_2000
+WHERE lower(county_name) LIKE '%lake'
+
+
+SELECT *
+FROM mn_census_tracts_2000
+Limit 10;
